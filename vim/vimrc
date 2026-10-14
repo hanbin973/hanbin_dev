@@ -1,0 +1,40 @@
+" ---- Vundle ----------------------------------------------------------------
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+call vundle#end()
+
+" ---- General ---------------------------------------------------------------
+if has("syntax")
+  syntax on
+endif
+filetype plugin indent on
+
+set autoindent
+set noexpandtab      " <Tab> inserts a real tab character
+set tabstop=4
+set shiftwidth=4
+set softtabstop=0
+
+set background=dark
+set number
+set laststatus=2     " always show airline
+
+" ---- Current-line highlight (background colour, no underline) --------------
+set cursorline
+function! s:CursorLineStyle()
+  hi CursorLine   term=NONE cterm=NONE gui=NONE ctermbg=237 guibg=#3a3a3a
+  hi CursorLineNr cterm=bold gui=bold
+endfunction
+call s:CursorLineStyle()
+augroup CursorLineStyle
+  autocmd!
+  autocmd ColorScheme * call s:CursorLineStyle()
+augroup END
+
+" ---- Airline ---------------------------------------------------------------
+let g:airline#extensions#tabline#enabled = 1
