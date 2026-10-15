@@ -38,3 +38,6 @@ augroup END
 
 " ---- Airline ---------------------------------------------------------------
 let g:airline#extensions#tabline#enabled = 1
+
+" --- YAML -------------------------------------------------------------------
+autocmd FileType yaml setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2 autoindent indentkeys-=0#
