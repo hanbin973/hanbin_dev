@@ -21,6 +21,7 @@ sed -i '/^# >>> hanbin_dev 256color >>>$/,/^# <<< hanbin_dev 256color <<<$/d' ~/
 cat >> ~/.tmux.conf <<EOF
 # >>> hanbin_dev 256color >>>
 set -g default-terminal "$term"
+set -g mouse on
 # <<< hanbin_dev 256color <<<
 EOF
 if tmux info >/dev/null 2>&1; then tmux source-file ~/.tmux.conf; fi
